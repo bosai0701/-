@@ -45,8 +45,8 @@ var map = L.map('map', {
     minZoom: 1,
 });
 
-// Using Stamen Toner Lite tiles for a grey map with minimal details
-L.tileLayer("http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png", {
+// Using Stamen Watercolor tiles for a black sea and minimal details
+L.tileLayer("http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png", {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
