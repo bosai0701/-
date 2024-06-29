@@ -93,6 +93,6 @@ function updateMap() {
 $(function () {
     // 初回の更新
     updateMap();
-    // 10秒ごとに更新
-    setInterval(updateMap, 10000);
+    // 1秒ごとに更新
+    setInterval(updateMap, 1000);
 });
