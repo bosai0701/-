@@ -44,10 +44,11 @@ var map = L.map('map', {
     maxZoom: 9,
     minZoom: 1,
 });
-L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-        attribution: '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-    }).addTo(map);
+
+// Using Stamen Toner Lite tiles for a grey map with minimal details
+L.tileLayer("http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png", {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
 
 // p波マーカー初期化
 var pwave = L.circle([0, 0], {
