@@ -38,14 +38,14 @@ function GetyyyyMMdd(difftime = 0) {
 }
 
 var map = L.map('map', {
-    center: [35.682839, 139.759455], // 東京の座標を中心に設定
-    zoom: 7,
+    center: [36.2048, 138.2529], // 日本の中心地 (例: ここでは長野市の座標)
+    zoom: 6,
     zoomControl: false,
     maxZoom: 9,
     minZoom: 1,
     maxBounds: L.latLngBounds(
-        L.latLng(20.0, 122.0), // 南西端の座標 (沖縄周辺)
-        L.latLng(45.0, 153.0)  // 北東端の座標 (北海道周辺)
+        L.latLng(20.0, 122.0), // 日本の南西端の座標 (例: 沖縄周辺)
+        L.latLng(45.0, 153.0)  // 日本の北東端の座標 (例: 北海道周辺)
     )
 });
 
@@ -53,7 +53,7 @@ L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 }).addTo(map);
 
-// p波マーカー初期化
+// 以下の部分は地震波のマーカーの初期化コード
 var pwave = L.circle([0, 0], {
     radius: 0,
     color: 'blue',
@@ -61,7 +61,6 @@ var pwave = L.circle([0, 0], {
     fillOpacity: 0.5,
 }).addTo(map);
 
-// s波マーカー初期化
 var swave = L.circle([0, 0], {
     radius: 0,
     color: '#dc143c',
@@ -69,6 +68,7 @@ var swave = L.circle([0, 0], {
     fillOpacity: 0.1,
 }).addTo(map);
 
+// 地図の更新を行う関数
 function updateMap() {
     $.when(
         $.getJSON(`https://weather-kyoshin.west.edge.storage-yahoo.jp/RealTimeData/${GetyyyyMMdd()}/${GetyyyyMMddHHmmss()}.json?${new Date().getTime()}`)
