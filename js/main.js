@@ -1,3 +1,42 @@
+function GetyyyyMMddHHmmss(difftime = 0) {
+    var today = new Date();
+    today.setSeconds(today.getSeconds() - difftime);
+
+    var year = today.getFullYear().toString();
+
+    var month = (today.getMonth() + 1).toString();
+    month = ("0" + month).slice(-2);
+
+    var day = today.getDate().toString();
+    day = ("0" + day).slice(-2);
+
+    var hour = today.getHours().toString();
+    hour = ("0" + hour).slice(-2);
+
+    var minute = today.getMinutes().toString();
+    minute = ("0" + minute).slice(-2);
+
+    var second = today.getSeconds().toString();
+    second = ("0" + second).slice(-2);
+
+    return year + month + day + hour + minute + second;
+}
+
+function GetyyyyMMdd(difftime = 0) {
+    var today = new Date();
+    today.setSeconds(today.getSeconds() - difftime);
+
+    var year = today.getFullYear().toString();
+
+    var month = (today.getMonth() + 1).toString();
+    month = ("0" + month).slice(-2);
+
+    var day = today.getDate().toString();
+    day = ("0" + day).slice(-2);
+
+    return year + month + day;
+}
+
 var map = L.map('map', {
     center: [34.9558, 139.8139],
     zoom: 9,
@@ -5,11 +44,10 @@ var map = L.map('map', {
     maxZoom: 9,
     minZoom: 1,
 });
-
-// 地理院タイル（灰色）を使用
-L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
-    attribution: '© <a href="https://maps.gsi.go.jp/development/ichiran.html">地理院タイル</a>'
-}).addTo(map);
+L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution: '© <a href="http://osm.org/copyright">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+    }).addTo(map);
 
 // p波マーカー初期化
 var pwave = L.circle([0, 0], {
