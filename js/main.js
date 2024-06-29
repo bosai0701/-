@@ -45,29 +45,11 @@ var map = L.map('map', {
     minZoom: 1,
 });
 
-// 地理院地図の標準地図タイルレイヤー
+// OpenStreetMapの代わりに国土地理院が提供する標準地図タイルレイヤーを追加
 var baseLayer = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
     attribution: '国土地理院',
     maxNativeZoom: 18,
     maxZoom: 18,
-}).addTo(map);
-
-// 陸地のスタイル設定
-map.createPane('landPane');
-map.getPane('landPane').style.zIndex = 300;
-map.getPane('landPane').style.pointerEvents = 'none';
-
-L.geoJson(null, {
-    style: function (feature) {
-        return {
-            fillColor: '#dddddd', // 陸地を灰色に
-            weight: 1,
-            opacity: 1,
-            color: '#ffffff', // 県境を白色に
-            fillOpacity: 0.7
-        };
-    },
-    pane: 'landPane'
 }).addTo(map);
 
 // p波マーカー初期化
