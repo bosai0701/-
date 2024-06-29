@@ -45,9 +45,9 @@ var map = L.map('map', {
     minZoom: 1,
 });
 
-// Using Stamen Watercolor tiles for a black sea and minimal details
-L.tileLayer("http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.png", {
-    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> — Map data © <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+// Using default OpenStreetMap tiles
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 // p波マーカー初期化
